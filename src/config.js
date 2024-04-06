@@ -30,7 +30,7 @@ export default {
 		radio_buttonsize: 36,
 		
 		sym_radio_anchor:{x:10,y:8.5},
-		sym_radio_size:48,
+		sym_radio_size:72,
 		sym_radio_orientation:"vertical",
 		sym_radio_label_position:"right",
 		sym_radio_shape:"rect",

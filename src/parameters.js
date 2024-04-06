@@ -38,7 +38,7 @@ export default {
 		default:1
 		},
 		symbols : {
-			choices:["heads","circles"],
+			choices:["heads","circles","manlios"],
 		default:0
 		},
 		three_diagonal_obstacles: {

@@ -4,6 +4,8 @@ import {agents} from "./model.js"
 import styles from "./styles.module.css"
 import attach_head from "./cartoon.js"
 import {obstacles} from "./obstacles.js"
+import manlio from './manlio.png';
+
 
 const L = param.L;
 const person_scale = param.person_scale;
@@ -51,6 +53,14 @@ const initialize = (display,config) => {
 	
 	attach_head(person)
 
+	node.append('image')
+		.attr("xlink:href", manlio)
+		.attr('width', 30)
+		.attr('height', 30)
+		.attr('x',-15)
+		.attr('y',-15)
+		.attr("class",styles.manlio)
+
 	const obstacle = origin.selectAll("."+styles.obstacle)
 	.data(obstacles).enter()
 	.append("circle")
@@ -58,6 +68,16 @@ const initialize = (display,config) => {
 	.attr("cx",d=>X(d.x))
 	.attr("cy",d=>Y(d.y))
 	.style("opacity",function(d){return d.active==true?1:0})
+	
+	
+	display.selectAll("#origin").selectAll("."+styles.person)
+			.style("opacity",param.symbols.widget.value()==0?1:0)
+
+	display.selectAll("#origin").selectAll("."+styles.mulch)
+			.style("opacity",param.symbols.widget.value()==1?1:0)
+	
+	display.selectAll("#origin").selectAll("."+styles.manlio)
+			.style("opacity",param.symbols.widget.value()==2?1:0)
 
 	
 };
@@ -87,11 +107,15 @@ const update = (display,config) => {
 		.classed(styles["left"],d=>d.direction)
 		.classed(styles["right"],d=>!d.direction)
 	
+	
 	display.selectAll("#origin").selectAll("."+styles.person)
 			.style("opacity",param.symbols.widget.value()==0?1:0)
 
 	display.selectAll("#origin").selectAll("."+styles.mulch)
-			.style("opacity",param.symbols.widget.value()==0?0:1)
+			.style("opacity",param.symbols.widget.value()==1?1:0)
+	
+	display.selectAll("#origin").selectAll("."+styles.manlio)
+			.style("opacity",param.symbols.widget.value()==2?1:0)
 
 }
 
