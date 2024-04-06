@@ -22,4 +22,11 @@ const dist = (a,b) => {
 	return Math.sqrt(dx*dx + dy*dy);
 }
 
-export {toArray,add_id_label,add_widget,get_variables,get_booleans,get_choices,deg2rad,rad2deg,dist}
+const lv = (x,y) => {
+	return Math.sqrt(x*x+y*y);		
+}
+
+const theta_func = (x) => { return x < 0 ? 0 : x  }
+
+
+export {toArray,add_id_label,add_widget,get_variables,get_booleans,get_choices,deg2rad,rad2deg,dist,lv,theta_func}

@@ -1,3 +1,72 @@
-.node {
+.node { }
+.person { }
+
+.left {
+	fill:rgb(120,120,120);
+}
+
+.right {
+	fill:white;
+}
+
+.arena {
+	fill:white;
+	stroke:black;
+	stroke-width:2;
+}
+
+.mulch {
+	stroke:black;
+	stroke-width:1;
+}
+
+
+.nose{
+	stroke-width:30;
+	stroke:black;
+}
+
+.head{
+	stroke-width:30;
+	stroke:black;		
+}
+
+.shoulder{
+	stroke-width:30;
+	stroke:black;
+}
+
+.hair{
+	stroke-width:30;
+	stroke:black;
+}
+
+ .eye{
+	fill:black;
+}
+
+
+
+
+.obstacle {
+	stroke:black;
+	fill:grey;
+	stroke-width:2;
+}
+
+.obs0.obstacle{
+	fill:rgb(220,220,220);
+}
+
+.obs1{
 	
 }
+
+.obs2{
+	
+}
+
+.obs3{
+	
+}
+

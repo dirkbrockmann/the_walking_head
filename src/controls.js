@@ -38,15 +38,19 @@ const sliders = map(va,
 					.range(v.range)
 					.value(v.default)
 					.size(cfg.widgets.slider_size)
+					.girth(cfg.widgets.slider_girth)
+					.knob(cfg.widgets.slider_knob)
 		);
 
 // making the toggle widgets objects, based on the switches
 		
 const toggles = map(bo, 
 		v => widgets.toggle()
-					.id(v.id).
-					label(v.label).
-					value(v.default)					
+					.id(v.id)
+					.label(v.label)
+					.value(v.default)
+					.labelposition(cfg.widgets.toggle_label_pos)
+					.size(cfg.widgets.toggle_size)
 		);
 
 // making the radio widgets objects, based on the choices
@@ -56,8 +60,8 @@ const radios = map(ch,
 					.choices(v.choices)
 					.id(v.id)
 					.value(v.default)
-					.orientation(cfg.widgets.radio_orientation)
-					.labelposition(cfg.widgets.radio_label_position)
+					//.orientation(cfg.widgets.radio_orientation)
+					//.labelposition(cfg.widgets.radio_label_position)
 		);
 
 
@@ -95,17 +99,29 @@ export default (controls,grid)=>{
 	const sl_pos=grid.position(cfg.widgets.slider_anchor.x,range(sliders.length)
 			.map(x=>(cfg.widgets.slider_anchor.y+cfg.widgets.slider_gap*x)));
 	
-	const tg_pos=grid.position(cfg.widgets.toggle_anchor.x,cfg.widgets.toggle_anchor.y);	
+	const tg_pos=grid.position(cfg.widgets.toggle_anchor.x,range(toggles.length)
+			.map(x=>(cfg.widgets.toggle_anchor.y+cfg.widgets.toggle_gap*x)));
 
 	const ra_pos=grid.position(cfg.widgets.radio_anchor.x,cfg.widgets.radio_anchor.y);		
+	const sym_ra_pos=grid.position(cfg.widgets.sym_radio_anchor.x,cfg.widgets.sym_radio_anchor.y);		
 	
 	sliders.forEach((sl,i) => sl.position(sl_pos[i]));
-	
-
-	toggles[0].position(tg_pos).labelposition(cfg.widgets.toggle_label_pos)
+	toggles.forEach((tg,i) => tg.position(tg_pos[i]));
 
 	radios[0].position(ra_pos)
-		.size(cfg.widgets.radio_size).shape(cfg.widgets.radio_shape)
+			.size(cfg.widgets.radio_size)
+			.shape(cfg.widgets.radio_shape)
+			.buttonsize(cfg.widgets.radio_buttonsize)
+			.orientation(cfg.widgets.radio_orientation)
+			.labelposition(cfg.widgets.radio_label_position)
+	
+	radios[1].position(sym_ra_pos)
+			.size(cfg.widgets.sym_radio_size)
+			.shape(cfg.widgets.sym_radio_shape)
+			.buttonsize(cfg.widgets.sym_radio_buttonsize)
+
+		//	.orientation(cfg.widgets.sym_radio_orientation)
+
 	
 	go.position(grid.position(cfg.widgets.playbutton_anchor.x,cfg.widgets.playbutton_anchor.y))
 		.size(cfg.widgets.playbutton_size);

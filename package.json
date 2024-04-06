@@ -1,13 +1,13 @@
 {
-  "name": "@explorables/explorable_template",
-  "title": "Explorable Title",
-  "subtitle":"Explorable Subtitle",
+  "name": "@explorables/the_walking_head",
+  "title": "The walking head",
+  "subtitle": "Pedestrian dynamics",
   "version": "1.1.0",
   "license": "CC-BY-4.0",
-  "description": "This is a template for making a complexity explorable. The template can be used to create a new complexity explorable. This template implements the Vicsek Model.",
+  "description": "This explorable illustrates a simple model for pedestrian dynamics. The model can explain spontaneous lane formation in opposing flows, congestion patterns, and phenomena like crowd turbulence.",
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/dirkbrockmann/explorable_template.git"
+    "url": "git+https://github.com/dirkbrockmann/the_walking_head.git"
   },
   "author": "Dirk Brockmann (https://rocs.hu-berlin.de)",
   "main": "./dist/index.js",
@@ -16,6 +16,7 @@
     "test": "echo \"Error: no test specified\" && exit 1",
     "build": "webpack --mode production ",
     "dev": "webpack serve --static dist/ --mode development",
+    "pap": "git add . ; git commit -m \"$npm_package_version\"; git push; npm version patch; npm publish ",
     "show": "http-server dist -o"
   },
   "keywords": [
@@ -25,7 +26,7 @@
   ],
   "dependencies": {
     "d3": "^7.8.5",
-    "d3-widgets": "^1.2.4",
+    "d3-widgets": "^1.2.5",
     "lodash-es": "^4.17.21",
     "tachyons": "^4.12.0"
   },

@@ -1,5 +1,5 @@
 export default {
-  "title": "Explorable Title",
-  "subtitle":"Explorable Subtitle",
-  "description": "This is a template for making a complexity explorable. The template can be used to create a new complexity explorable. This template implements the Vicsek Model."
+  "title": "The walking head",
+  "subtitle":"Pedestrian dynamics",
+  "description": "This explorable illustrates a simple model for pedestrian dynamics. The model can explain 	spontaneous lane formation in opposing flows, congestion patterns, and phenomena like crowd turbulence."
 }

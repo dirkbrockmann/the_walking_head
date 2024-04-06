@@ -15,8 +15,8 @@ function initialize (display,config) {
 	visual_init(display,config); 
 };
 
-function update (display,config) {
-	model_update();
+function update (display,config,relax) {
+	model_update(relax);
 	visual_update(display,config);
 }
 

@@ -1,68 +1,102 @@
-// This is the core module for the implementation of the visualization
-// It's analogous to model.js in terms of its relation to other modules,
-// e.g. it reads the parameters and provides initialize, go and update functions
-// to simulation.js where they get bundled with the analogous functions in model.js
-// the observables and variables exported in model.js, e.g. the quantities
-// used for the actual visualizations are also imported to viz.js
-
 import * as d3 from "d3"
 import param from "./parameters.js"
 import {agents} from "./model.js"
 import styles from "./styles.module.css"
+import attach_head from "./cartoon.js"
+import {obstacles} from "./obstacles.js"
 
 const L = param.L;
-const X = d3.scaleLinear().domain([0,L]);
-const Y = d3.scaleLinear().domain([0,L]);
+const person_scale = param.person_scale;
 
-// the initialization function, this is bundled in simulation.js with the initialization of
-// the model and effectively executed in index.js when the whole explorable is loaded
-// typically here all the elements in the SVG or CANVAS element are set.
+var X = d3.scaleLinear().domain([-L,L]);
+var Y = d3.scaleLinear().domain([-L,L]);
+
+var node;
 
 const initialize = (display,config) => {
 
 	const W = config.display_size.width;
 	const H = config.display_size.height;
 	
-	X.range([0,W]);
-	Y.range([0,H]);
+	X.range([-W/2,W/2]);
+	Y.range([-H/2,H/2]);
+	
+	const N_walkers = param.number_of_walkers.choices[param.number_of_walkers.widget.value()];
 		
 	display.selectAll("#origin").remove();
 	
-	const origin = display.append("g").attr("id","origin")
+	const origin = display.append("g")
+		.attr("id","origin")
+		.attr("transform","translate("+W/2+","+H/2+")")
 	
-	origin.selectAll(null).data(agents).enter().append("circle")
+	origin.append("circle")
+		.attr("r",X(param.R2))
+		.style("stroke","black")
+		.attr("class",styles.arena)
+	
+	node = origin.selectAll("."+styles.node)
+		.data(agents).enter().append("g")
 		.attr("class",styles.node)
-		.attr("cx",d=>X(d.x))
-		.attr("cy",d=>Y(d.y))
-		.attr("r",X(param.agentsize/2))
-		.style("fill", d => param.color_by_heading.widget.value() ? d3.interpolateSinebow(d.theta/2/Math.PI)  : "black")
+		.attr("transform",d=>"translate("+X(d.x)+","+Y(d.y)+")rotate("+(180-d.heading*180/Math.PI)+")")
+		.style("opacity",function(d,i){return i < N_walkers ? 1 : 0})
+		.classed(styles["left"],d=>d.direction)
+		.classed(styles["right"],d=>!d.direction)
+
+	node.append("circle")
+		.attr("r",X(1))
+		.attr("class",styles.mulch)
+	
+	const person = node.append("g")
+		.attr("class",styles.person)
+	
+	attach_head(person)
+
+	const obstacle = origin.selectAll("."+styles.obstacle)
+	.data(obstacles).enter()
+	.append("circle")
+	.attr("class",d => styles.obstacle+" "+styles[d.name]).attr("r",d=>X(d.R))
+	.attr("cx",d=>X(d.x))
+	.attr("cy",d=>Y(d.y))
+	.style("opacity",function(d){return d.active==true?1:0})
+
 	
 };
 
-// the go function, this is bundled in simulation.js with the go function of
-// the model, typically this is the iteration function of the model that
-// is run in the explorable. It contains the code that updates the parts of the display
-// panel as a function of the model quantities.
 
 const go = (display,config) => {
 	
-	display.selectAll("."+styles.node)
-		.attr("cx",d=>X(d.x))
-		.attr("cy",d=>Y(d.y))
-		.style("fill", d => param.color_by_heading.widget.value() ? d3.interpolateSinebow(d.theta/2/Math.PI)  : "black")
+	const N_walkers = param.number_of_walkers.choices[param.number_of_walkers.widget.value()];
+	
+	display.selectAll("#origin").selectAll("."+styles.node)
+		.attr("transform",d=>"translate("+X(d.x)+","+Y(d.y)+")rotate("+(180-d.heading*180/Math.PI)+")")
+		.style("opacity",function(d,i){return i < N_walkers ? 1 : 0})
 	
 }
 
-// the update function is usually not required for running the explorable. Sometimes
-// it makes sense to have it, e.g. to update the visualization, if a parameter is changed,
-// e.g. a radio button is pressed, when the system is not running, e.g. when it is paused.
 
 const update = (display,config) => {
 	
-	display.selectAll("."+styles.node)
-		.style("fill", d => param.color_by_heading.widget.value() ? d3.interpolateSinebow(d.theta/2/Math.PI)  : "black")
+	const N_walkers = param.number_of_walkers.choices[param.number_of_walkers.widget.value()];
 	
+	display.selectAll("#origin").selectAll("."+styles.obstacle)
+		.style("opacity",function(d){return d.active==true?1:0})
+	
+	display.selectAll("#origin").selectAll("."+styles.node)
+		.attr("transform",d=>"translate("+X(d.x)+","+Y(d.y)+")rotate("+(180-d.heading*180/Math.PI)+")")
+		.style("opacity",function(d,i){return i < N_walkers ? 1 : 0})
+		.classed(styles["left"],d=>d.direction)
+		.classed(styles["right"],d=>!d.direction)
+	
+	display.selectAll("#origin").selectAll("."+styles.person)
+			.style("opacity",param.symbols.widget.value()==0?1:0)
+
+	display.selectAll("#origin").selectAll("."+styles.mulch)
+			.style("opacity",param.symbols.widget.value()==0?0:1)
+
 }
+
+
+
 
 
 export {initialize,go,update}
