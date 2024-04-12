@@ -3,7 +3,7 @@
 // be passed to the load() method defined in index.js.
 
 export default {
-	id:"explorable_template",
+	id:"the_walking_head",
 	display_type:"svg", // either svg or canvas depending on explorable
 	debug:false,  // if set to true, draws dots on the control panel to help widget placement
 	controls_border:"",
