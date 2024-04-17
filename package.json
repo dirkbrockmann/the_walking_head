@@ -4,7 +4,7 @@
   "subtitle": "Fußgängerdynamik",
   "version": "1.1.6",
   "license": "CC-BY-4.0",
-  "description": "Das Explorable zeigt ein einfaches model zur Fußgängerdynamik. Das Modell erklärt die spontane Enstehung von Richtungsspuren in entgegenläufigen Strömungen, Staubildung und sogar ein Phänomen, das sich Crowd Tutbulance nennt.",
+  "description": "Das Explorable zeigt ein einfaches Modell zur Fußgängerdynamik. Das Modell erklärt die spontane Entstehung von Richtungsspuren in entgegenläufigen Strömungen, Staubildung und sogar ein Phänomen, das sich Crowd Tutbulance nennt.",
   "repository": {
     "type": "git",
     "url": "git+https://github.com/dirkbrockmann/the_walking_head.git#cosmo"
