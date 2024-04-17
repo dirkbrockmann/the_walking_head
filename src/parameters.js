@@ -23,32 +23,39 @@ export default {
 	
 		mean_speed: {
 			range:[3,10],
-			default:6
+			default:6,
+			label:"Geschwindigkeit"
 		},
 		speed_variability:{
 			range : [0,0.3],
-			default : 0.1
+			default : 0.1,
+			label: "Variabilität Geschwindigkeit"
 		},
 		directional_bias:{
 			range : [-200,200],
-			default : 0
+			default : 0,
+			label: "Richtungsverteilung"
 		},
 		number_of_walkers : {
 			choices:[25,50,100,200],
-		default:1
+		default:1,
+			label:"Personen"
 		},
 		symbols : {
-			choices:["heads","circles","manlios"],
+			choices:["Köpfe","Kreise","Manlios"],
 		default:0
 		},
 		three_diagonal_obstacles: {
-		default: false
+		default: false,
+		label:"Drei kleine Hindernisse"
 		},
 		two_smaller_obstacles: {
-			default: false
+			default: false,
+		label:"Zwei kleine Hindernisse"
 		},
 		single_large_obstacle: {
-		default: false
+		default: false,
+		label:"Ein großes Hindernis"
 		}	
 		
 }

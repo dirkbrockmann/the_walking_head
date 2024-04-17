@@ -1,13 +1,13 @@
 {
-  "name": "@explorables/the_walking_head",
+  "name": "the_walking_head",
   "title": "The walking head",
-  "subtitle": "Pedestrian dynamics",
+  "subtitle": "Fußgängerdynamik",
   "version": "1.1.6",
   "license": "CC-BY-4.0",
-  "description": "This explorable illustrates a simple model for pedestrian dynamics. The model can explain spontaneous lane formation in opposing flows, congestion patterns, and phenomena like crowd turbulence.",
+  "description": "Das Explorable zeigt ein einfaches model zur Fußgängerdynamik. Das Modell erklärt die spontane Enstehung von Richtungsspuren in entgegenläufigen Strömungen, Staubildung und sogar ein Phänomen, das sich Crowd Tutbulance nennt.",
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/dirkbrockmann/the_walking_head.git"
+    "url": "git+https://github.com/dirkbrockmann/the_walking_head.git#cosmo"
   },
   "author": "Dirk Brockmann (https://rocs.hu-berlin.de)",
   "main": "./dist/index.js",
