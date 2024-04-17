@@ -47,11 +47,11 @@ export default {
 		},
 		three_diagonal_obstacles: {
 		default: false,
-		label:"Drei kleine Hindernisse"
+		label:"Drei Hindernisse"
 		},
 		two_smaller_obstacles: {
 			default: false,
-		label:"Zwei kleine Hindernisse"
+		label:"Zwei Hindernisse"
 		},
 		single_large_obstacle: {
 		default: false,
