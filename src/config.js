@@ -12,7 +12,7 @@ export default {
 		slider_girth: 10,
 		slider_knob:14,
 		
-		toggle_anchor: {x:6.5,y:1.5},
+		toggle_anchor: {x:6,y:1.5},
 		toggle_label_pos:"right",
 		toggle_gap:1.5,
 		toggle_size:12,
