@@ -41,10 +41,10 @@ export default {
 			choices:["heads","circles","manlios"],
 		default:0
 		},
-		three_diagonal_obstacles: {
+		three_small_obstacles: {
 		default: false
 		},
-		two_smaller_obstacles: {
+		two_obstacles: {
 			default: false
 		},
 		single_large_obstacle: {
