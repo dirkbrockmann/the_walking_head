@@ -41,14 +41,17 @@ export default {
 			choices:["heads","circles","manlios"],
 		default:0
 		},
-		three_small_obstacles: {
-		default: false
+		three_diagonal_obstacles: {
+		default: false,
+		label:"Three small osbstacles"
 		},
-		two_obstacles: {
-			default: false
+		two_smaller_obstacles: {
+			default: false,
+		label:"Two osbstacles"
 		},
 		single_large_obstacle: {
-		default: false
+		default: false,
+		label:"One large obstacle"
 		}	
 		
 }
