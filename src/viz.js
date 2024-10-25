@@ -7,6 +7,8 @@ import {obstacles} from "./obstacles.js"
 import manlio from './manlio.png';
 
 
+console.log(manlio)
+
 const L = param.L;
 const person_scale = param.person_scale;
 
