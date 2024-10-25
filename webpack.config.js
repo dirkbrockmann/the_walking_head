@@ -28,7 +28,8 @@ module.exports = {
       path: path.resolve(__dirname, 'dist'),
       filename: 'index.js',
   	  library: name,
-      clean: true 
+      clean: true,
+		publicPath: '/'
     }, 
   module: {
 	  rules: [
@@ -54,14 +55,10 @@ module.exports = {
 	  	       use: ["style-loader", "css-loader"],
 	  	       exclude: /\.module\.css$/,
 	  	     },
-			 {
-			         test: /\.(png|jpe?g|gif)$/i,
-			         use: [
-			           {
-			             loader: 'file-loader',
-			           },
-			         ],
-			       },
+	         {
+	           test: /\.(png|svg|jpg|jpeg|gif)$/i,
+	           type: 'asset/resource',
+	         },
 	  	   ]
     },
 	devServer: {
