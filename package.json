@@ -10,7 +10,7 @@
     "url": "git+https://github.com/dirkbrockmann/the_walking_head.git"
   },
   "author": "Dirk Brockmann (https://rocs.hu-berlin.de)",
-  "main": "./index.js",
+  "main": "./dist/index.js",
   "module": "src/index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
