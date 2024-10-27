@@ -21,7 +21,7 @@ Out of the box you can use the explorable in a basic `index.html` file like this
 	<head>
 		<meta charset="utf-8">
 		<meta name="viewport" content="width=device-width,initial-scale=1">
-		<script src="https://cdn.jsdelivr.net/npm/@explorables/the_walking_head"></script>
+		<script src="https://cdn.jsdelivr.net/npm/@explorables/the_walking_head/dist/index.js"></script>
 	</head>
 	<body class="avenir pa3 pa5-ns tj">
 	    <div id="explorable_container"></div>
