@@ -37,6 +37,6 @@ export default {
 		sym_radio_buttonsize: 24,
 	},
 	simulation: {
-		delay:0
+		delay:10
 	}
 }
