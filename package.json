@@ -4,7 +4,7 @@
   "subtitle": "Pedestrian dynamics",
   "description": "This explorable illustrates a simple model for pedestrian dynamics. The model can explain spontaneous lane formation in opposing flows, congestion patterns, and phenomena like crowd turbulence.",
   "author": "Dirk Brockmann (https://synosy.github.io)",
-  "version": "2.0.0",
+  "version": "2.0.1",
   "license": "CC-BY-4.0",
   "repository": {
     "type": "git",
@@ -27,9 +27,9 @@
     "visualization"
   ],
   "dependencies": {
-      "d3": "^7.8.5",
-      "d3-widgets": "^1.2.3",
-      "lodash-es": "^4.17.21"
+    "d3": "^7.8.5",
+    "d3-widgets": "^1.2.3",
+    "lodash-es": "^4.17.21"
   },
   "devDependencies": {
     "vite-plugin-css-injected-by-js": "^3.5.2",
