@@ -1,3 +1,27 @@
+.displayPanel {
+  /* Styles for the display panel */
+  display: block;
+  line-height: 0;
+  box-sizing: border-box;
+}
+
+.controlPanel {
+  /* Styles for the control panel */
+  display: block;
+  line-height: 0;
+  box-sizing: border-box;
+}
+
+/* Ensure media children don't introduce baseline descender spacing */
+.displayPanel > canvas,
+.displayPanel > svg,
+.controlPanel > svg,
+.controlPanel > canvas {
+  display: block;
+  box-sizing: border-box;
+}
+
+
 .node { }
 .person { }
 .manlio { }
@@ -14,11 +38,6 @@
 	fill:none;
 	stroke:black;
 	stroke-width:2;
-}
-
-.mulch {
-	stroke:black;
-	stroke-width:1;
 }
 
 
@@ -47,6 +66,10 @@
 }
 
 
+.mulch {
+	stroke:black;
+	stroke-width:1;
+}
 
 
 .obstacle {
@@ -57,6 +80,7 @@
 
 .obs0.obstacle{
 	fill:rgb(220,220,220);
+	stroke:black
 }
 
 .obs1{
@@ -69,5 +93,28 @@
 
 .obs3{
 	
+}
+
+@media (prefers-color-scheme: dark) {
+	.arena {
+		stroke:white;
+		fill:none;
+	}
+	.obs0.obstacle{
+		fill:rgb(60,60,60);
+		stroke:white
+	}
+	.mulch {
+	stroke:white;
+	stroke-width:1;
+}
+.left {
+	fill:rgb(120,120,120);
+}
+
+.right {
+	
+}
+
 }
 

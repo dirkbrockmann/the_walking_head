@@ -35,7 +35,6 @@ const initialize = (display,config) => {
 	
 	origin.append("circle")
 		.attr("r",X(param.R2))
-		.style("stroke","black")
 		.attr("class",styles.arena)
 	
 	node = origin.selectAll("."+styles.node)
