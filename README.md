@@ -8,7 +8,7 @@
 
 This explorable illustrates a simple model for pedestrian dynamics. The model can explain spontaneous lane formation in opposing flows, congestion patterns, and phenomena like crowd turbulence.
 
-The explorable is part of the [**Complexity Exporables Collection**](https://www.complexity-explorables.org). For more information about the system and its behavior consult the explorable
+The explorable is part of the [**Complexity Explorables Collection**](https://www.complexity-explorables.org). For more information about the system and its behavior consult the explorable
 > [**“The walking head” - Pedestrian dynamics**](https://www.complexity-explorables.org/explorables/the-walking-head)
 
 ## Usage & Installation
@@ -24,8 +24,11 @@ If you want to run a local copy without having to rely on the nasty internet, th
 is to install it via `npm`:
 
 ```shell
+mkdir the_walking_head
+cd the_walking_head
+npm init -y
 npm install @explorables/the_walking_head
-open node_modules/@explorables/the_walking_head/dist/index.html 
+npx http-server node_modules/@explorables/the_walking_head/dist/ 
 ```
 
 ### Embedding the explorable in your site
